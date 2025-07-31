@@ -14,9 +14,9 @@ const Blog = require("./models/blog")
 const app= express();
 const PORT = process.env.PORT || 8000;
 
-mongoose.connect("mongodb://127.0.0.1:27017/blogify")
-.then(() => console.log("MongoDB Connected"))
-.catch((err) => console.error("MongoDB connection error:", err));
+mongoose.connect(process.env.MONGO_URL)
+  .then(() => console.log("MongoDB Connected"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 
 app.set("view engine","ejs");                   
